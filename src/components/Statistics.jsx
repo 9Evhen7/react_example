@@ -1,4 +1,6 @@
 import styles from '../css/Statistics.module.css';
+import PropTypes from "prop-types";
+
 export const Statistics = ({stats}) => {
     return (
         <div className={styles.statistics}>
@@ -16,4 +18,6 @@ export const Statistics = ({stats}) => {
         </div>
 );};
 
-
+Statistics.propTypes = {
+    stats: PropTypes.array.isRequired,
+}

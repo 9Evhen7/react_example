@@ -1,4 +1,5 @@
 import styles from '../css/Friends.module.css';
+import PropTypes from "prop-types";
 
 export const Friends = ({friends}) => { 
     return (
@@ -14,3 +15,7 @@ export const Friends = ({friends}) => {
             </ul>
     )
 };
+
+Friends.propTypes = {
+    friends: PropTypes.array,
+}

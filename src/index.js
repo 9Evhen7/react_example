@@ -9,9 +9,6 @@ import data from './data.json';
 import friends from './friends.json'
 import transactions from './transactions.json';
 import './index.css';
-console.log(data);
-console.log(friends);
-console.log(transactions)
 
 
 
