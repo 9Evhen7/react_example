@@ -2,7 +2,6 @@ import styles from '../css/Friends.module.css';
 import PropTypes from "prop-types";
 
 const FriendListItem = ({ isOnline, avatar, name }) => {
-    console.log(isOnline)
         return (
     <>
         <span className={`${styles.status} ${isOnline?styles.isOnline:styles.isOfline}`}></span>
