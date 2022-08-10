@@ -1,17 +1,22 @@
 import styles from '../css/Statistics.module.css';
 import PropTypes from "prop-types";
 
-export const Statistics = ({stats}) => {
+export const Statistics = ({
+    title = "Upload stats",
+    statistics,
+}) => {
+    
     return (
         <div className={styles.statistics}>
-            <h2 className={styles.title}>Upload stats</h2>
+            <h2 className={styles.title}>{ title}</h2>
 
             <ul className={styles.list}>
-                {stats.map(stat => { 
+                {statistics.map(({ id, label, percentage }) => { 
+                    
                     return (
-                    <li key={stat.id} className={styles.item}>
-                        <span>{stat.label}</span>
-                        <span>{stat.percentage}%</span>
+                    <li key={id} className={styles.item}>
+                        <span>{label}</span>
+                        <span>{percentage}%</span>
                     </li>)
                 })}
             </ul>
@@ -19,5 +24,10 @@ export const Statistics = ({stats}) => {
 );};
 
 Statistics.propTypes = {
-    stats: PropTypes.array.isRequired,
+    title: PropTypes.string,
+    statistics: PropTypes.arrayOf(PropTypes.shape({
+        id: PropTypes.string.isRequired,
+        label: PropTypes.string.isRequired,
+        percentage: PropTypes.number,
+    })),
 }

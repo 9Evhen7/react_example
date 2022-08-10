@@ -1,10 +1,10 @@
-.friendsList{
+.friend_List{
     padding: 0;
     margin-top: 50px;
 
 }
 
-.friendsItem{
+.friendListItem{
     width: 250px;
     height: auto;
     text-align: center;

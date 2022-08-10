@@ -12,12 +12,12 @@ export const Transaction = ({ transactions }) => {
                 </tr>
             </thead>
             <tbody className={styles.body}>
-                {transactions.map(transaction => {
+                {transactions.map(({id, type, amount, currency}) => {
                     return (
-                        <tr key={transaction.id} className={styles.row}>
-                            <td>{transaction.type}</td>
-                            <td>{transaction.amount}</td>
-                            <td>{transaction.currency}</td>
+                        <tr key={id} className={styles.row}>
+                            <td>{type}</td>
+                            <td>{amount}</td>
+                            <td>{currency}</td>
                         </tr>
                     )
                 })}
@@ -26,7 +26,12 @@ export const Transaction = ({ transactions }) => {
 };
 
 Transaction.propTypes = {
-    transactions: PropTypes.array,
+    transactions: PropTypes.arrayOf(PropTypes.shape({
+        id: PropTypes.string.isRequired,
+        type: PropTypes.string.isRequired,
+        amount: PropTypes.string.isRequired,
+        currency: PropTypes.string.isRequired,
+    }))
 }
 
 
